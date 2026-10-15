@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test dla Mientusa</title>
+    <style>
+        body {
+            background-color: #ebebeb;
+            font-family: trebuchet ms, sans-serif;
+            background-image: url('https://cdn.discordapp.com/attachments/1508449169927438489/1559844871882408036/mientuski.png?ex=6ad1dfbd&is=6ad08e3d&hm=b9cd4ff4d925c2d7f9f517a9a85d477e30881c5a94b77b283c18d376b745769f&');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .pytanie-ankietowe {
+            align-content: center;
+            border: 3px solid #4a9f00;
+            border-radius: 25px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 50%;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #pytanie2, #pytanie3 {
+            display: none;
+        }
+        h1 {
+            color: #000000;
+            text-align: center;
+        }
+        label {
+            margin: 3px;
+            padding-right: 5px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            display: inline-block;
+            background-image: linear-gradient(to bottom, #4a9f00b4, #4a9f0052);
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            padding: 10px;
+            font-size: 16px;
+            margin: 15px;
+            background-color: #4a9f00;
+            color: white;
+            border: 2px solid #2e6200;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+ <h1 class="Title">Test dla Mientusa</h1>   
+    <div class="pytanie-ankietowe" id="pytanie1">
+        <h1>Jakie jest Twoje ulubione zwierzę?</h1>
+        <input type="radio" id="pies" name="zwierze" value="pies">
+        <label for="pies">Pies</label><br>
+        <input type="radio" id="kot" name="zwierze" value="kot">
+        <label for="kot">Kot</label><br>
+        <input type="radio" id="papuga" name="zwierze" value="papuga">
+        <label for="papuga">Papuga</label><br> 
+        <input type="radio" id="tank" name="zwierze" value="czołgu">
+        <label for="tank">Czołg</label><br>
+        <input type="submit" value="Zatwierdź" id="zatwierdz1">
+    </div>
+    <div class="pytanie-ankietowe" id="pytanie2">
+        <h1>Gdzie pracujesz?</h1>
+        <input type="radio" id="uczelnia" name="praca" value="uczelnia">
+        <label for="uczelnia">Uczelnia</label><br>
+        <input type="radio" id="onlyfans" name="praca" value="onlyfans">
+        <label for="onlyfans">OnlyFans</label><br>
+        <input type="radio" id="u-brata" name="praca" value="u brata">
+        <label for="u-brata">U brata</label><br>
+        <input type="radio" id="w-lesie" name="praca" value="w lesie">
+        <label for="w-lesie">W lesie</label><br>
+        <input type="radio" id="uber" name="praca" value="uber">
+        <label for="uber">Uber</label><br>
+        <input type="submit" value="Zatwierdź" id="zatwierdz2">
+    </div>
+    <div class="pytanie-ankietowe" id="pytanie3"> 
+        <h1>Jakim mientusem dzisiaj jesteś?</h1>
+        <input type="radio" id="mientus1" name="mientus" value="mientus1">
+        <label for="mientus1">Mientus mocny siła fest</label><br>
+        <input type="radio" id="mientus2" name="mientus" value="mientus2">
+        <label for="mientus2">Mientus dla cipek</label><br>
+        <input type="radio" id="mientus3" name="mientus" value="mientus3">
+        <label for="mientus3">Mientus o smaku coli</label><br>
+        <input type="radio" id="mientus4" name="mientus" value="mientus4">
+        <label for="mientus4">Mientus tani z biedronki</label><br>
+        <input type="submit" value="Zatwierdź" id="zatwierdz3">
+    </div>
+    <script>
+        function showNextQuestion(currentQuestionId, nextQuestionId) {
+            document.getElementById(currentQuestionId).style.display = 'none';
+            document.getElementById(nextQuestionId).style.display = 'block';
+        }
+        currentQuestionId = 'pytanie1';
+        wynik = 0;
+        document.getElementById('zatwierdz1').addEventListener('click', function() {
+            showNextQuestion(currentQuestionId, 'pytanie2');
+            currentQuestionId = 'pytanie2';
+            if (document.getElementById('pies').checked){
+                wynik =+ 1;
+            } else {
+                wynik =+ 0;
+            }
+            console.log(wynik);
+        });
+        document.getElementById('zatwierdz2').addEventListener('click', function    () {
+            showNextQuestion(currentQuestionId, 'pytanie3');
+            currentQuestionId = 'pytanie3';
+        });
+        
+     
+    </script>
+</body>
+</html>
