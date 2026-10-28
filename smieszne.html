@@ -8,7 +8,7 @@
         body {
             background-color: #ebebeb;
             font-family: trebuchet ms, sans-serif;
-            background-image: url('https://cdn.discordapp.com/attachments/1508449169927438489/1559844871882408036/mientuski.png?ex=6ad1dfbd&is=6ad08e3d&hm=b9cd4ff4d925c2d7f9f517a9a85d477e30881c5a94b77b283c18d376b745769f&');
+            background-image: url('https://cdn.discordapp.com/attachments/1508449169927438489/1559844871882408036/mientuski.png?ex=6ae1b1bd&is=6ae0603d&hm=e64890511239c870ea05933e1e2e9c7a9d64e59801081acbe02800f2aa035a8e&');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -28,7 +28,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        #pytanie2, #pytanie3 {
+        #pytanie2, #pytanie3, #pytanie4, #pytanie5, #pytanie6, #pytanie7, #wynik {
             display: none;
         }
         h1 {
@@ -57,9 +57,9 @@
     </style>
 </head>
 <body>
- <h1 class="Title">Test dla Mientusa</h1>   
+ <h1 class="Title">Test o Mientusie</h1>   
     <div class="pytanie-ankietowe" id="pytanie1">
-        <h1>Jakie jest Twoje ulubione zwierzę?</h1>
+        <h1>Jakie jest Mientka ulubione zwierzę?</h1>
         <input type="radio" id="pies" name="zwierze" value="pies">
         <label for="pies">Pies</label><br>
         <input type="radio" id="kot" name="zwierze" value="kot">
@@ -71,7 +71,7 @@
         <input type="submit" value="Zatwierdź" id="zatwierdz1">
     </div>
     <div class="pytanie-ankietowe" id="pytanie2">
-        <h1>Gdzie pracujesz?</h1>
+        <h1>Gdzie pracuje Mientek?</h1>
         <input type="radio" id="uczelnia" name="praca" value="uczelnia">
         <label for="uczelnia">Uczelnia</label><br>
         <input type="radio" id="onlyfans" name="praca" value="onlyfans">
@@ -85,7 +85,7 @@
         <input type="submit" value="Zatwierdź" id="zatwierdz2">
     </div>
     <div class="pytanie-ankietowe" id="pytanie3"> 
-        <h1>Jakim mientusem dzisiaj jesteś?</h1>
+        <h1>Jakim Mientusem dzisiaj jesteś?</h1>
         <input type="radio" id="mientus1" name="mientus" value="mientus1">
         <label for="mientus1">Mientus mocny siła fest</label><br>
         <input type="radio" id="mientus2" name="mientus" value="mientus2">
@@ -95,6 +95,31 @@
         <input type="radio" id="mientus4" name="mientus" value="mientus4">
         <label for="mientus4">Mientus tani z biedronki</label><br>
         <input type="submit" value="Zatwierdź" id="zatwierdz3">
+    </div>
+    <div class="pytanie-ankietowe" id="pytanie4">
+        <h1>Czy to prawda że Mientak jest przebranym eminemem?</h1>
+        <input type="radio" id="tak" name="prawda" value="tak">
+        <label for="tak">Tak</label><br>
+        <input type="radio" id="nie" name="prawda" value="nie">
+        <label for="nie">Nie (dziwne)</label><br>
+        <input type="submit" value="Zatwierdź" id="zatwierdz4">
+    </div>
+    <div class="pytanie-ankietowe" id="pytanie5">
+        <h1>Gdyby Mientek był kobietą to jak by sie nazywał?</h1>
+        <input type="radio" id="mientka" name="kobieta" value="mientka">
+        <label for="mientka">Mientka</label><br>
+        <input type="radio" id="mientusia" name="kobieta" value="mientusia">
+        <label for="mientusia">Mientusia</label><br>
+        <input type="radio" id="niewiem" name="kobieta" value="niewiem">
+        <label for="niewiem">nie wiem</label><br>
+        <input type="radio" id="Melisa" name="kobieta" value="Melisa">
+        <label for="Melisa">Melisa</label><br>
+        <input type="radio" id="Kunekunda" name="kobieta" value="Kunekunda">
+        <label for="Kunekunda">Kunekunda</label><br>
+        <input type="submit" value="Zatwierdź" id="zatwierdz5">
+    </div>
+    <div class="pytanie-ankietowe" id="wynik">
+        <h1>Twój wynik to: <span id="score"></span></h1>
     </div>
     <script>
         function showNextQuestion(currentQuestionId, nextQuestionId) {
@@ -107,17 +132,53 @@
             showNextQuestion(currentQuestionId, 'pytanie2');
             currentQuestionId = 'pytanie2';
             if (document.getElementById('pies').checked){
-                wynik =+ 1;
+                wynik += 1;
             } else {
-                wynik =+ 0;
+                wynik += 0;
             }
             console.log(wynik);
         });
         document.getElementById('zatwierdz2').addEventListener('click', function    () {
             showNextQuestion(currentQuestionId, 'pytanie3');
             currentQuestionId = 'pytanie3';
+            if (document.getElementById('uczelnia').checked){
+                wynik += 1;
+            } else {
+                wynik += 0;
+            }
+            console.log(wynik);
         });
-        
+        document.getElementById('zatwierdz3').addEventListener('click', function() {
+            showNextQuestion(currentQuestionId, 'pytanie4');
+            currentQuestionId = 'pytanie4';
+            if (document.getElementById('mientus1').checked){
+                wynik += 1;
+            } else {
+                wynik += 0;
+            }
+            console.log(wynik);
+        });
+        document.getElementById('zatwierdz4').addEventListener('click', function() {
+            showNextQuestion(currentQuestionId, 'pytanie5');
+            currentQuestionId = 'pytanie5';
+            if (document.getElementById('nie').checked){
+                wynik += 1;
+            } else {
+                wynik += 0;
+            }
+            console.log(wynik);
+        });
+        document.getElementById('zatwierdz5').addEventListener('click', function() {
+            showNextQuestion(currentQuestionId, 'wynik');
+            currentQuestionId = 'wynik';
+            if (document.getElementById('niewiem').checked){
+                wynik += 1;
+            } else {
+                wynik += 0;
+            }
+            console.log(wynik);
+            document.getElementById('score').textContent = wynik + " / 5";
+        });
      
     </script>
 </body>
